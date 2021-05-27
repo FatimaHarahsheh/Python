@@ -1,0 +1,40 @@
+To create Three Users:
+
+userOne = users.objects.create(first_name ="Fatima", last_name="Mousa" , email_address="Fatima@gmail.com",age =21 )
+userTwo = users.objects.create(first_name ="Hadeel", last_name="Qnaiby" , email_address="Hadeeeeel@cu.com",age =19 )  
+userThree = users.objects.create(first_name ="Lona", last_name="Sell" , email_address="lo@gmail.com",age =28 )
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+To retrieve all users: 
+
+print(users.objects.all())
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+TO retrieve THe last User:
+
+ lastUser = users.objects.last()
+ print("last user is :" , lastUser)
+ print("last user is :" , lastUser.first_name , lastUser.last_name, lastUser.email_address , lastUser.age)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+To retrieve The first user :
+
+firstUser = users.objects.first()
+print("First user is :" , firstUser.first_name , firstUser.last_name, firstUser.email_address , firstUser.age)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+To update The user with id =3 last_name :
+ users_To_Update = users.objects.get(id=3)
+ users_To_Update.last_name= "Pancakes"
+ users_To_Update.save()
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+To delete the user with id = 2:
+
+users_To_Delete = users.objects.get(id=2)
+users_To_Delete.delete()
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+To get all users sorted by first name :
+
+users.objects.all().order_by("first_name")
+in the cmd : <QuerySet [<users: users object (1)>, <users: users object (3)>]>
+
+in decending : 
+ users.objects.all().order_by("-first_name")
+in the cmd : <QuerySet [<users: users object (3)>, <users: users object (1)>]>
+

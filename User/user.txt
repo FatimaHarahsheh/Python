@@ -1,0 +1,38 @@
+class user :
+    def __init__(self,name,email,account_balnce=0):
+        self.name=name
+        self.email=email
+        self.account_balnce=0
+
+    def display_user(self):
+        print (self.name ,self.email)    
+
+    def make_withdrawal(self, amount):
+        self.account_balnce-=amount
+    
+    def display_user_balance(self):
+        print(self.name,self.account_balnce)
+
+
+    def user_balance(self):
+        print (self.account_balnce)
+
+    def transfer( self,otheruser,amount ):
+        self.make_withdrawal(amount)
+        otheruser.make_withdrawal
+
+
+
+depoist=user("fatima","fatiamharahsheh99@gmail.com")
+depoist.display_user()
+depoist.make_withdrawal(100)
+depoist.display_user()
+depoist.display_user_balance()
+depoist.display_user()
+depoist.user_balance()
+depoist.display_user()
+
+
+
+
+
