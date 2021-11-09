@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>{{bo.title}}</h1>
+    <p>id= {{bo.id}}</p>
+    <p>description : {{bo.desc}}</p>
+
+    <h3>authors</h3>
+        {%for i in bo.bkat.all%}
+        <li>{{i.first_name}} {{i.last_name}}</li>
+        {%endfor%}
+    <form action="/joinbook" method="POST">
+    <select name="selectbook">
+        {%for x in au%}
+        <option name="{{x.id}}">{{x.first_name}} {{x.last_name}}</option>
+        {%endfor%}
+    </select>
+    <input type="submit" value="add">
+    </form>
+
+</body>
+</html>
