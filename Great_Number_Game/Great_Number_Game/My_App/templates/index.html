@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great_Number_Game</title>
+</head>
+<body>
+
+    <h1>Weclome to the Great Number Game</h1>
+    <p>I am thinkining of a number between 1 and 100</p>
+    <h5>Take a guess!</h5>
+    <form action="/Test" method="POST">
+        {%csrf_token%}
+    <input type="number" name="number"> <br>
+    <input type="submit" name="submit">
+    </form>
+    
+   {%if Answer == 1 %}
+    <div style="width: 500px; height: 300px; border: solid black ; background-color: green; color: white;">
+        <p style="text-align: center; margin-top: 30%; font-size: 2rem;">{{number}} Was The Number ! </p>
+        <button style="color:black; border: solid; box-shadow: black; background-color: white; margin-left: 40%;" >Play Again!</button>
+    </div>
+    {%endif%}
+    {%if Answer == 2 %}
+    <div style="width: 500px; height: 300px; border: solid black ; background-color:red; color: white;">
+        <p style="text-align: center; margin: 30%; font-size: 2rem;">TOO High!</p>
+    </div>
+    {%endif%}
+    {%if Answer == 3 %}
+    <div style="width: 500px; height: 300px; border: solid black ; background-color:red;color: white;">
+    <p style="text-align: center; margin: 30%; font-size: 2rem;">Too LOW!</p>
+    </div>
+    {%endif%}
+</body>
+</html>

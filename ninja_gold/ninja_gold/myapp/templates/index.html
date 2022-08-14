@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ninja gold</title>
+</head>
+<body>
+    <h1 style="text-align: center;">ninja Gold money</h1>
+    <h3>your gold : {{request.session.gold}}</h3>
+    <section style="display: flex;">
+    <div class="farm" style="width: 300px;">
+    <h2 style="text-align: center;">farm</h2>
+    <h5 style="text-align: center;">(earn 10-20gold)</h5>
+    <form action="/process_money" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="farm">
+        <input  type="submit" name="submit" value="Find Gold!"> 
+    </form>
+    </div>
+    <div class="cave" style="width: 300px;">
+        <h2 style="text-align: center;">cave</h2>
+    <h5 style="text-align: center;">(earn 5-10 golds)</h5>
+    <form action="/process_money" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="cave">
+        <input  type="submit" name="submit" value="Find Gold!"> 
+    </form>
+</div>
+    <div class="house" style="width: 300px;">
+        <h2 style="text-align: center;">farm</h2>
+    <h5 style="text-align: center;">(earn 2-5 golds)</h5>
+    <form action="/process_money" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="house">
+        <input  type="submit" name="submit" value="Find Gold!"> 
+    </form>
+</div>
+    <div class="casino" style="width: 300px;">
+        <h2 style="text-align: center;">farm</h2>
+    <h5 style="text-align: center;">(earn/takes 0-50gold)</h5>
+    <form action="/process_money" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="casino">
+        <input  type="submit" name="submit" value="Find Gold!"> 
+    </form>
+</div>
+    </section>
+    <div style="width: 1000px;height: 300px;">
+    <h3>Activities:</h3>
+    <ul>
+        {% for each in request.session.activities %}
+        <li>{{ each }}</li>
+        {% endfor%}
+    </ul></div>
+    <form action="/clear" method="POST">
+        {% csrf_token %}
+        <input  type="submit" name="submit" value="reset">
+</body>
+</html>

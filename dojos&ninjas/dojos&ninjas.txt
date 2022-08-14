@@ -1,0 +1,102 @@
+from dojo_ninja_app.models import *
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+Create 3 new dojos : 
+
+Dojo.objects.create(name="Fatima",city="Hebron",state="West Bank")
+<dojo: dojo object (1)>
+ Dojo.objects.create(name="Yara",city="Bethlahem",state="West Bank")
+<dojo: dojo object (2)>
+ Dojo.objects.create(name="Munia",city="Ramallah",state="West Bank")
+<dojo: dojo object (3)>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+Delete the 3 dojos you just created:
+
+ do = Dojo.objects.get(id=1)
+ do.delete()
+(1, {'dojo_ninja_app.dojo': 1})
+ do = Dojo.objects.get(id=2)
+ do.delete()
+(1, {'dojo_ninja_app.dojo': 1})
+ do = Dojo.objects.get(id=3)
+ do.delete()
+(1, {'dojo_ninja_app.dojo': 1})
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+Create 3 more dojos:
+
+ Dojo.objects.create(name="Areen",city="Nablus",state="West Bank")
+<dojo: dojo object (4)>
+ Dojo.objects.create(name="Noor",city="Jenin",state="West Bank")
+<dojo: dojo object (5)>
+ Dojo.objects.create(name="Maria",city="Hebron",state="West Bank")
+<dojo: dojo object (6)>
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+Create 3 ninjas that belong to the first dojo:
+
+ dojo=Dojo.objects.get(id=4)
+
+Ninja.objects.create(first_name="dojo1",last_name="Dojos",dojo=dojo)
+<ninja: ninjas object (1)>
+ Ninjas.objects.create(first_name="dojo2",last_name="Dojos2",dojo=dojo)
+<ninjas: ninjas object (2)>
+ Ninjas.objects.create(first_name="dojo3",last_name="Dojos3",dojo=dojo)
+<ninjas: ninjas object (3)>
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+Create 3 ninjas that belong to the second dojo
+
+doj = Dojo.objects.get(id=5)
+
+ Ninja.objects.create(first_name="ALi",last_name="Ali",dojo=doj)
+<Ninja: Ninja object (4)>
+ Ninja.objects.create(first_name="fatoom",last_name="mousa",dojo=doj)
+<Ninja: Ninja object (5)>
+ Ninja.objects.create(first_name="munia",last_name="Rajabi",dojo=doj)
+<Ninja: Ninja object (6)>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+ Create 3 ninjas that belong to the third dojo:
+
+doj1 = Dojo.objects.get(id=6)
+
+Ninja.objects.create(first_name="moh",last_name="mora",dojo=doj1)
+<Ninja: Ninja object (7)>
+Ninja.objects.create(first_name="h",last_name="",dojo=doj1)
+<Ninja: Ninja object (8)>
+Ninja.objects.create(first_name="fly",last_name="moon",dojo=doj1)
+<Ninja: Ninja object (9)>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Retrieve all the ninjas from the first dojo:
+
+ dej = Dojo.objects.get(id=4)
+ nej = Ninja.objects.filter(dojo = dej)
+nej.all()
+[<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+Retrieve all the ninjas from the last dojo:
+
+ dig=Dojo.objects.last()
+ nij = Ninja.objects.filter(dojo = dej)
+ nij.all()
+<QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+Retrieve the last ninja's dojo:
+
+nij.dojo.name
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+Create a new dojo:
+
+from dojo_ninja_app.models import *
+Dojo.objects.create(name="IM",city="SO",state="BORED",desc="!!!!!!!")
+<Dojo: Dojo object (7)>
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
